@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content=="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <title>目录</title>
+    <style type="text/css">
+        .catelog-scroll{
+            position: absolute;
+            top:45px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            overflow-y:scroll ;
+        }
+        .catelog-title{
+            padding:10px 0 14px 15px ;
+            border-bottom: 1px solid #f0f0f0;
+            font:14px/16px a;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="app" style="width: {{ screen_width }}px;overflow: hidden;" v-cloak>
+    <% include include/catelog-header.html%>
+    <div class="container-warp">
+        <div class="catelog-scroll" style="top:0px;">
+            <ul class="catelog-list">
+                <li v-for="item in title" v-if="$index<1" >
+                    <a href="/reader">
+                        <div class="catelog-title Swipe-tab_on">
+                            <p>{{ item.title }}</p>
+                        </div>
+                    </a>
+                </li>
+                <li v-for="item in title" v-if="$index>0" >
+                    <a href="/reader">
+                        <div class="catelog-title">
+                            <p>{{ item.title }}</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/pages/catelog.js"></script>
+</html>

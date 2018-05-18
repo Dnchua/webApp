@@ -28,6 +28,10 @@ app.use(controller.get('/',function *() {
     this.set('Cache-Control','no-cache');
     this.body = yield render('index',{title : '书城首页'});
 }));
+app.use(controller.get('/catelog',function *() {
+    this.set('Cache-Control','no-cache');
+    this.body = yield render('catelog',{title : '目录'});
+}));
 app.use(controller.get('/search',function *() {
     this.set('Cache-Control','no-cache');
     this.body = yield render('search',{title : '搜索界面'});
@@ -51,6 +55,10 @@ app.use(controller.get('/free',function *() {
 app.use(controller.get('/rank',function *() {
     this.set('Cache-Control','no-cache');
     this.body = yield render('rank',{title : '排行'});
+}));
+app.use(controller.get('/reader',function *() {
+    this.set('Cache-Control','no-cache');
+    this.body = yield render('reader',{title : '本体'});
 }));
 app.use(controller.get('/book',function *() {
     this.set('Cache-Control','no-cache');
@@ -82,6 +90,14 @@ app.use(controller.get('/ajax/rank',function *() {
     this.set('Cache-Control','no-cache');
     this.body = service.get_rank_data();
 }));
+app.use(controller.get('/ajax/chapter',function *() {
+    this.set('Cache-Control','no-cache');
+    this.body = service.get_chapter_data();
+}));
+app.use(controller.get('/ajax/catelog',function *() {
+    this.set('Cache-Control','no-cache');
+    this.body = service.get_catelog_data();
+}));
 app.use(controller.get('/ajax/book',function *() {
     this.set('Cache-Control','no-cache');
     var querystring = require('querystring');
@@ -91,6 +107,16 @@ app.use(controller.get('/ajax/book',function *() {
         id = "";
     }
     this.body = service.get_book_data(id);
+}));
+app.use(controller.get('/ajax/chapter/data',function *() {
+    this.set('Cache-Control','no-cache');
+    var querystring = require('querystring');
+    var params      = querystring.parse(this.req._parsedUrl.query);
+    var id       = params.id;
+    if(!id){
+        id = "";
+    }
+    this.body = service.get_chapter_content_data(id);
 }));
 
 

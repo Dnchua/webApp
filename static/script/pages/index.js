@@ -42,9 +42,6 @@ $.get('/ajax/index',function (d) {
                     }
 
             }
-            // jump : function (pos) {
-            //     location.href=
-            // }
         }
     })
 },'json');

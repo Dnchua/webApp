@@ -8,7 +8,7 @@
         <title>书城首页</title>
     </head>
     <body>
-        <div id="app" style="width: {{ screen_width }}px;overflow: hidden;">
+        <div id="app" style="width: {{ screen_width }}px;overflow: hidden;" v-cloak>
             <% include include/header.html%>
             <div style="width:{{ double_window_width }}px;transition-duration: 0.5s;transform: translate3d({{ position }}px,0px,0px)">
                 <div class="container-warp" style="width:{{ screen_width }}px;float: left;">
