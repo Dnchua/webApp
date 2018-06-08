@@ -33,6 +33,29 @@ exports.get_rank_data = function () {
     var content = fs.readFileSync('./mock/rank.json','utf-8');
     return content;
 }
+exports.get_bookonline_data = function (id) {
+    return function (cb) {
+        var http = require('http');
+        var url = require('url');
+        var biliUrl = 'http://dushu.xiaomi.com/hs/v0/android/fiction/book/' + id;
+        http.get(biliUrl, (res) => {
+            var data = '';  //接口数据
+        res.on('data', (chunk) => {
+            data += chunk;    //拼接数据块
+    })
+        ;
+        res.on('end', function () {
+            let json = JSON.parse(data); //解析json
+            debugger;
+            console.log(json);
+        })
+    }).
+        on('error', () =>
+        console.log('获取数据出错!')
+    )
+        ;
+    }
+}
 exports.get_search_data = function (start,end,keyword) {
     return function (cb) {
         var http = require('http');

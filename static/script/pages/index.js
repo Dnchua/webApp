@@ -23,7 +23,10 @@ $.get('/ajax/index',function (d) {
             header_position:0,
             header_duration:0,
             tab_1_class:'Swipe-tab__on',
-            tab_2_class:''
+            tab_2_class:'',
+            tab_male_class : 'tab__on',
+            tab_female_class : '',
+            tab_flag :0
         },
         methods:{
             tabChange : function(pos){
@@ -40,8 +43,18 @@ $.get('/ajax/index',function (d) {
                         this.tab_2_class = "Swipe-tab_on";
                         this.tab_1_class = "";
                     }
-
+            },
+            tab_NV : function (tab_flag) {
+                    if(tab_flag==0){
+                        this.tab_male_class = 'tab__on';
+                        this.tab_female_class = '';
+                    }
+                    else{
+                        this.tab_male_class = '';
+                        this.tab_female_class = 'tab__on';
+                    }
             }
+
         }
     })
 },'json');

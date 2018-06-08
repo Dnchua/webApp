@@ -76,7 +76,7 @@
     width: 50%;
 }
 .Swipe-tab_on {
-    color:#ffab18;
+    color:#ffab18 !important;
 }
 .f-cb:after{
     clear:both;

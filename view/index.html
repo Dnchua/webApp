@@ -8,10 +8,10 @@
         <title>书城首页</title>
     </head>
     <body>
-        <div id="app" style="width: {{ screen_width }}px;overflow: hidden;" v-cloak>
+        <div id="app" style="width: {{ screen_width }}px;overflow: hidden;" >
             <% include include/header.html%>
             <div style="width:{{ double_window_width }}px;transition-duration: 0.5s;transform: translate3d({{ position }}px,0px,0px)">
-                <div class="container-warp" style="width:{{ screen_width }}px;float: left;">
+                <div class="container-warp" style="width:{{ screen_width }}px;float: left;" v-cloak>
                     <div class="container-scroll" style="top:0px;">
                         <% include include/index-top.html%>
                         <% include include/index-hot.html%>
@@ -22,7 +22,7 @@
                         <% include include/index-bottom.html%>
                     </div>
                 </div>
-                <div style="width:{{ screen_width }}px;float: left;">
+                <div style="width:{{ screen_width }}px;float: left;" v-cloak>
                     <%include include/index-shelf.html %>
                 </div>
             </div>

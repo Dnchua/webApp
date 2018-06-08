@@ -8,6 +8,8 @@ var render      = views('./view',{
 var koa_static  = require('koa-static-server');
 var service     = require('./service/webAppService.js');
 var querystring = require('querystring');
+var http        = require('http');
+var url         = require('url');
 app.use(koa_static({
     rootDir : './static/',
     rootPath: '/static/',
@@ -63,8 +65,8 @@ app.use(controller.get('/reader',function *() {
 app.use(controller.get('/book',function *() {
     this.set('Cache-Control','no-cache');
     var params = querystring.parse(this.req._parsedUrl.query);
-    var boolId = params.id;
-    this.body = yield render('book',{bookId:bookId});
+    var bookId = params.id;
+    this.body = yield render('book',{nav:'书籍详情',bookId:bookId});
 }));
 //获取模拟数据得方法
 app.use(controller.get('/api_test',function *() {
@@ -104,9 +106,9 @@ app.use(controller.get('/ajax/book',function *() {
     var params      = querystring.parse(this.req._parsedUrl.query);
     var id       = params.id;
     if(!id){
-        id = "";
+        id = "319171";
     }
-    this.body = service.get_book_data(id);
+    this.body =service.get_book_data(id);
 }));
 app.use(controller.get('/ajax/chapter/data',function *() {
     this.set('Cache-Control','no-cache');
