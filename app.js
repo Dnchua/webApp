@@ -81,12 +81,11 @@ app.use(controller.get('/ajax/index',function *() {
 //真实请求线上数据
 app.use(controller.get('/ajax/search',function *() {
     this.set('Cache-Control','no-cache');
+    this.set('Access-Control-Allow-Origin','*')
     var querystring = require('querystring');
     var params      = querystring.parse(this.req._parsedUrl.query);
-    var start       = params.start;
-    var end       = params.endt;
     var keyword       = params.keyword;
-    this.body = yield service.get_search_data(start,end,keyword);
+    this.body = yield service.get_search_data(keyword);
 }));
 app.use(controller.get('/ajax/rank',function *() {
     this.set('Cache-Control','no-cache');
@@ -108,7 +107,7 @@ app.use(controller.get('/ajax/book',function *() {
     if(!id){
         id = "319171";
     }
-    this.body =service.get_book_data(id);
+    this.body =service.get_bookonline_data(id);
 }));
 app.use(controller.get('/ajax/chapter/data',function *() {
     this.set('Cache-Control','no-cache');

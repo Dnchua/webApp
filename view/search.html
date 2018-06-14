@@ -1,0 +1,60 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content=="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <title>书城首页</title>
+    <style>
+        .search-box{
+            margin:10px 13px ;
+            padding:1px 0 0 30px ;
+            font:11px/33px a;
+            color: rgba(0,0,0,0.4);
+            background: url(http://image.read.duokan.com/mfsv2/download/fdsc3/p01dSYLeWtSR/tY73MgTfVw7UAS.png) no-repeat 8px center;
+            background-size: 14px;
+            border: 1px solid #f5f5f5;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+<div id="app_search" style="width: {{ screen_width }}px;overflow: hidden;" >
+    <% include include/catelog-header.html%>
+    <div class="search-box">
+        <input type="text" id="search-val" placeholder="请输入作者/书名/关键字">
+        <button class="search-input__submit" v-on:click = 'doSearch'>搜索</button>
+    </div>
+    <section class="channel-h5">
+        <div class="channel-h5__header">
+            <p class="channel-h5__title">
+                搜索结果
+            </p>
+        </div>
+        <ul class="list-h5" v-cloak>
+            <li v-for="item in search" v-if="$index<4 ">
+                <div class="book-h5" v-show="empty">
+                    <a href="/book?{{ item._id }}">
+                        <div class="book-h5__cover">
+                            <img alt="{{ item.title }}" v-bind:src="item.cover">
+                        </div>
+                        <div class="book-h5__info">
+                            <p class="book-h5__title">{{ item.title }}</p>
+                            <p class="book-h5__author">{{ item.author }}</p>
+                            <p class="book-h5__intro">{{ item.shortIntro }}</p>
+                            <!--<div class="book-h5__warp">-->
+                                <!--<p class="book-h5__tag" v-for="tags in item.tags" v-if="$index<3">{{ tags }}</p>-->
+                            <!--</div>-->
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </section>
+</div>
+</body>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/pages/search.js"></script>
+</html>
