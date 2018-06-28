@@ -5,7 +5,7 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" type="text/css" href="/static/css/all.css">
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
-    <title>书城首页</title>
+    <title>搜索</title>
     <style>
         .search-box{
             margin:10px 13px ;
@@ -21,9 +21,9 @@
 </head>
 <body>
 <div id="app_search" style="width: {{ screen_width }}px;overflow: hidden;" >
-    <% include include/catelog-header.html%>
+    <% include include/common-header.html%>
     <div class="search-box">
-        <input type="text" id="search-val" placeholder="请输入作者/书名/关键字">
+        <input type="text" id="search-val" style='width:{{ screen_width-150 }}px;' placeholder="请输入作者/书名/关键字">
         <button class="search-input__submit" v-on:click = 'doSearch'>搜索</button>
     </div>
     <section class="channel-h5">
@@ -35,17 +35,14 @@
         <ul class="list-h5" v-cloak>
             <li v-for="item in search" v-if="$index<4 ">
                 <div class="book-h5" v-show="empty">
-                    <a href="/book?{{ item._id }}">
+                    <a href="/book/{{ item._id }}">
                         <div class="book-h5__cover">
-                            <img alt="{{ item.title }}" v-bind:src="item.cover">
+                            <img  alt="{{ item.title }}" v-bind:src="decodeURIComponent(item.cover.split('/agent/').pop())">
                         </div>
                         <div class="book-h5__info">
                             <p class="book-h5__title">{{ item.title }}</p>
                             <p class="book-h5__author">{{ item.author }}</p>
                             <p class="book-h5__intro">{{ item.shortIntro }}</p>
-                            <!--<div class="book-h5__warp">-->
-                                <!--<p class="book-h5__tag" v-for="tags in item.tags" v-if="$index<3">{{ tags }}</p>-->
-                            <!--</div>-->
                         </div>
                     </a>
                 </div>

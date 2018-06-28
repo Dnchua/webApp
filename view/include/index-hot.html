@@ -9,7 +9,6 @@
     <ul class="list-h5">
         <li v-for="item in hot" v-if="$index<4">
             <div class="book-h5">
-                <!--<a href="/book?id={{ item.fiction_id }}">-->
                 <a href="/book?{{ item.fiction_id }}">
                 <div class="book-h5__cover">
                     <img alt="{{ item.title }}" v-bind:src="item.cover">

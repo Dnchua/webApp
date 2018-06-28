@@ -10,15 +10,13 @@ var service     = require('./service/webAppService.js');
 var querystring = require('querystring');
 var http        = require('http');
 var url         = require('url');
+var axios = require('axios');
 app.use(koa_static({
     rootDir : './static/',
     rootPath: '/static/',
     maxage : 0
 }))
-app.use(controller.get('/route_test',function *() {
-    this.set('Cache-Control','no-cache');
-    this.body = 'hello world';
-}));
+
 
 
 app.use(controller.get('/ejs_test',function *() {
@@ -46,9 +44,9 @@ app.use(controller.get('/male',function *() {
     this.set('Cache-Control','no-cache');
     this.body = yield render('male',{title : '男生频道'});
 }));
-app.use(controller.get('/category',function *() {
+app.use(controller.get('/classify',function *() {
     this.set('Cache-Control','no-cache');
-    this.body = yield render('category',{title : '分类'});
+    this.body = yield render('classify',{title : '分类'});
 }));
 app.use(controller.get('/free',function *() {
     this.set('Cache-Control','no-cache');
@@ -62,7 +60,7 @@ app.use(controller.get('/reader',function *() {
     this.set('Cache-Control','no-cache');
     this.body = yield render('reader',{title : '本体'});
 }));
-app.use(controller.get('/book',function *() {
+app.use(controller.get('/book/:bookId',function *() {
     this.set('Cache-Control','no-cache');
     var params = querystring.parse(this.req._parsedUrl.query);
     var bookId = params.id;
@@ -81,7 +79,7 @@ app.use(controller.get('/ajax/index',function *() {
 //真实请求线上数据
 app.use(controller.get('/ajax/search',function *() {
     this.set('Cache-Control','no-cache');
-    this.set('Access-Control-Allow-Origin','*')
+    this.set('Access-Control-Allow-Origin','*');
     var querystring = require('querystring');
     var params      = querystring.parse(this.req._parsedUrl.query);
     var keyword       = params.keyword;
@@ -91,24 +89,45 @@ app.use(controller.get('/ajax/rank',function *() {
     this.set('Cache-Control','no-cache');
     this.body = service.get_rank_data();
 }));
+app.use(controller.get('/ajax/classify',function *() {
+    this.set('Cache-Control','no-cache');
+    this.body = service.get_classify_data();
+}));
 app.use(controller.get('/ajax/chapter',function *() {
     this.set('Cache-Control','no-cache');
     this.body = service.get_chapter_data();
 }));
 app.use(controller.get('/ajax/catelog',function *() {
     this.set('Cache-Control','no-cache');
-    this.body = service.get_catelog_data();
+    var querystring = require('querystring');
+    var params      = querystring.parse(this.req._parsedUrl.query);
+    var id       = params.id;
+    this.body = yield service.get_catelog_data_online(id);
 }));
 app.use(controller.get('/ajax/book',function *() {
     this.set('Cache-Control','no-cache');
     var querystring = require('querystring');
     var params      = querystring.parse(this.req._parsedUrl.query);
     var id       = params.id;
-    if(!id){
-        id = "319171";
-    }
-    this.body =service.get_bookonline_data(id);
+    this.body =yield service.get_book_data_online(id);
 }));
+
+
+
+app.use(controller.get('/ajax/test',function *() {
+    this.set('Cache-Control','no-cache');
+    var querystring = require('querystring');
+    var params      = querystring.parse(this.req._parsedUrl.query);
+    var id          = params.id;
+    var start       = params.start;
+    var count       = params.count;
+    var click       = params.click;
+    this.body =yield service.get_xjb_online(id,start,count,click);
+}));
+
+
+
+
 app.use(controller.get('/ajax/chapter/data',function *() {
     this.set('Cache-Control','no-cache');
     var querystring = require('querystring');
@@ -119,6 +138,12 @@ app.use(controller.get('/ajax/chapter/data',function *() {
     }
     this.body = service.get_chapter_content_data(id);
 }));
+// app.use(controller.get('/ajax/chapterContent',async function (ctx) {
+//     var urls = 'http://chapter2.zhuishushenqi.com/chapter/http://vip.zhuishushenqi.com/chapter/http://vip.zhuishushenqi.com/chapter/56f8da0a176d03ac1983f6f6?cv=15271418534681';
+//     const bookInfo = await axios.get(urls);
+//     console.log(bookInfo.data);
+//     this.body = bookInfo.data;
+// }));
 
 
 app.listen(3001);

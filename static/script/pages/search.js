@@ -7,7 +7,8 @@ new Vue({
     data:{
         search:[],
         condition:true,
-        empty:true
+        empty:true,
+        screen_width:windowWidth
     },
     methods :{
         doSearch:function (e) {
@@ -17,8 +18,6 @@ new Vue({
                 keyword:keyword
             },function (d) {
                     _this.search = d.books;
-                    debugger;
-                    debugger
                     if(_this.search.length == 0){
                         _this.empty = false;
                     }else{

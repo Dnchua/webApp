@@ -5,6 +5,23 @@ $.get('/ajax/index',function (d) {
     }
     var offset = $($('.Swipe-tab').find('a')[0]).offset();
     var index_headre_tab_width = offset.width;
+    var liebiao = (function (d) {
+        var data = d.items[3].data.data;
+        var minArr=[];
+        var bigArr=[];
+        data.forEach(function (c) {
+            if(minArr.length === 5){
+                minArr=[];
+            }
+            if(minArr.length === 0){
+                bigArr.push(minArr);
+            }
+            minArr.push(c);
+        })
+        return bigArr;
+    })(d);
+
+    var showLiebiao = liebiao[0];
     new Vue({
         el:'#app',
         data:{
@@ -14,7 +31,7 @@ $.get('/ajax/index',function (d) {
             top:d.items[0].data.data,
             hot:d.items[1].data.data,
             recommend:d.items[2].data.data,
-            female:d.items[3].data.data,
+            female:liebiao[0],
             male:d.items[4].data.data,
             free:d.items[5].data.data,
             topic:d.items[6].data.data,
@@ -26,7 +43,8 @@ $.get('/ajax/index',function (d) {
             tab_2_class:'',
             tab_male_class : 'tab__on',
             tab_female_class : '',
-            tab_flag :0
+            tab_flag :0,
+            book_flag:0
         },
         methods:{
             tabChange : function(pos){
@@ -53,6 +71,9 @@ $.get('/ajax/index',function (d) {
                         this.tab_male_class = '';
                         this.tab_female_class = 'tab__on';
                     }
+            },
+            tabChangeBook : function () {
+                            Vue.set(this.female,0,liebiao[1][0]);
             }
 
         }
