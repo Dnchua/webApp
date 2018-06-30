@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="/static/script/zepto.js"></script>
+<script>
+    var Util = (function() {
+        var prefix = 'ficiton_reader_';
+        var StorageGetter = function(key) {
+            return localStorage.getItem(prefix + key);
+        }
+        var StorageSetter = function(key, val) {
+            return localStorage.setItem(prefix + key, val);
+        }
+        //数据解密
+        function getBSONP(url, callback) {
+            return $.jsonp({
+                url : url,
+                cache : true,
+                callback : "duokan_fiction_chapter",
+                success : function(result) {
+                    var data = $.base64.decode(result);
+                    var json = decodeURIComponent(escape(data));
+                    callback(json);
+                }
+            });
+
+        };
+
+        return {
+            getBSONP : getBSONP,
+            StorageGetter : StorageGetter,
+            StorageSetter : StorageSetter
+        }
+    })();
+    var getCurChapterContent = function() {
+        $.get("/ajax/chapter/data",{
+            id:'56f8da0a176d03ac1983f719',
+            cv:'15271418535131'
+        }, function(data) {
+            if (data.source == 'zhuishuvip') {
+                var url = data.jsonp;
+                Util.getBSONP(url, function(data) {
+                    $('#init_loading').hide();
+                    onChange_ && onChange_(data);
+                });
+            } else {
+
+            }
+        }, 'json');
+        return;
+
+    };
+    var id = '56f8da09176d03ac1983f6cd';
+    var Chapters = [];
+    var getFictionInfoPromise = new Promise(function(resolve, reject) {
+        $.get("/ajax/catelog", {
+            id : id
+        },function(data) {
+            console.log(data.result);
+            if (data.host =='vip.zhuishushenqi.com') {
+                var Title = data.book;
+                // $('#nav_title').html('返回书架');
+                var ChaptersData = data.chapters;
+                var chapter_data = data.chapters;
+                for (let i = 0; i < data.chapters.length; i++) {
+                    Chapters.push({
+                        "chapter_id" : data.chapters[i].order,
+                        "title" : data.chapters[i].title,
+                        'link' : data.chapters[i].link
+                    })
+                }
+                resolve(Chapters);
+            } else {
+                reject(data);
+            }
+        }, 'json');
+    });
+    getFictionInfoPromise.then(function (value) {
+        console.log(value)
+    })
+</script>
+</body>
+</html>

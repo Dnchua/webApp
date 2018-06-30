@@ -1,4 +1,7 @@
-$.get('/ajax/catelog',function (d) {
+var chapter_id=location.href.split('catelog/').pop();
+$.get('/ajax/catelog',{
+    id:chapter_id
+},function (d) {
     var windowWidth = $(window).width();
     if(windowWidth<320){
         windowWidth=320;
@@ -6,7 +9,7 @@ $.get('/ajax/catelog',function (d) {
     new Vue({
         el:'#app',
         data:{
-            title:d.item.toc,
+            title:d.chapters,
             highlight:'Swipe-tab__on',
             screen_width:windowWidth
         },

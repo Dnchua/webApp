@@ -7,13 +7,13 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <title>分类</title>
     <style type="text/css">
-        .col-xs-4>img{
+        .col-xs-4 img{
             width: 70px;
             height: 110px;
         }
-        img{
-            max-width: 100%;
-        }
+        /*img{*/
+            /*max-width: 100%;*/
+        /*}*/
         .classify-common{
             padding:0 20px 0 20px;
             margin:10px 0 10px 0;
@@ -71,12 +71,14 @@
                     <h1>男生小说</h1>
                 </div>
                 <ul class="col-md-12">
-                    <li class="col-xs-4" v-for="item in male_book" v-if="$index<12">
-                        <a href="javascript:">
-                            <img v-bind:src="decodeURIComponent(item.bookCover[0].split('/agent/').pop())" alt="图片">
-                            <h3>{{ item.name }}</h3>
-                            <p class="num">{{ item.bookCount }}</p>
-                        </a>
+                    <li  v-for="item in male_book" >
+                        <div class="col-xs-4">
+                            <a href="javascript:" v-if="$index<12">
+                                <img v-bind:src="decodeURIComponent(item.bookCover[0].split('/agent/').pop())" alt="图片">
+                                <h3>{{ item.name }}</h3>
+                                <p class="num">{{ item.bookCount }}</p>
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </section>
@@ -88,12 +90,14 @@
                     <h1>女生小说</h1>
                 </div>
                 <ul class="col-md-12">
-                    <li class="col-xs-4" v-for="item in male_book" v-if="$index<12">
-                        <a href="javascript:">
-                            <img v-bind:src="decodeURIComponent(item.bookCover[0].split('/agent/').pop())" alt="图片">
-                            <h3>{{ item.name }}</h3>
-                            <p class="num">{{ item.bookCount }}</p>
-                        </a>
+                    <li  v-for="item in female_book" >
+                        <div class="col-xs-4">
+                            <a href="javascript:" v-if="$index<12">
+                                <img v-bind:src="decodeURIComponent(item.bookCover[0].split('/agent/').pop())" alt="图片">
+                                <h3>{{ item.name }}</h3>
+                                <p class="num">{{ item.bookCount }}</p>
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </section>

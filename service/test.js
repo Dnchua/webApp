@@ -1,14 +1,29 @@
-// exports default{
-//     async getChapterContent(ctx) {
-//         var book-chapterContent = 'http://chapter2.zhuishushenqi.com/chapter';
-//         const chapterContent = await axios.get(book-chapterContent + `/${ctx.params.link}`);
-//         ctx.body = chapterContent.data;
-//     }
-// }
-var axios = require('axios');
-var ss = async function (ctx) {
-            var bookchapterContent = 'http://chapter2.zhuishushenqi.com/chapter/http://vip.zhuishushenqi.com/chapter/56f8da0a176d03ac1983f6f6?cv=15271418534681';
-            const chapterContent = await axios.get(bookchapterContent);
-            console.log(chapterContent);
-}
-ss('123')
+
+var id = '56f8da09176d03ac1983f6cd';
+var Chapters = [];
+var getFictionInfoPromise = new Promise(function(resolve, reject) {
+    $.get("/ajax/catelog", {
+        id : id
+    },function(data) {
+        console.log(data.result);
+        if (data.result == 0) {
+            Title = data.book;
+            // $('#nav_title').html('返回书架');
+            var ChaptersData = data.chapters;
+            var chapter_data = data.chapters;
+            for (let i = 0; i < data.chapters.length; i++) {
+                Chapters.push({
+                    "chapter_id" : data.chapters[i].order,
+                    "title" : data.chapters[i].title,
+                    'link' : data.chapters[i].link
+                })
+            }
+            resolve(Chapters);
+        } else {
+            reject(data);
+        }
+    }, 'json');
+});
+getFictionInfoPromise.then(function (value) {
+    console.log(value)
+})

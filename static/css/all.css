@@ -374,5 +374,5 @@
     padding: 19px 0;
 }
 [v-cloak]{
-    display: none;
+    opacity:0;
 }

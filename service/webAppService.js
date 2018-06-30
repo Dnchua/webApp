@@ -44,13 +44,13 @@ exports.get_search_data = function (keyword) {
         var http = require('http');
         var qs   = require('querystring');
         var data = {
-            keyword : keyword
+            query : keyword
         };
         var content = qs.stringify(data);
         var http_request = {
-            hostname : 'novel.juhe.im',
+            hostname : 'api.zhuishushenqi.com',
             port: 80,
-            path : '/search?' + content,
+            path : '/book/fuzzy-search?' + content,
             method:'GET'
         };
         req_obj = http.request(http_request,function (_res) {
@@ -75,9 +75,9 @@ exports.get_catelog_data_online = function (id) {
         };
         var content = qs.stringify(data);
         var http_request = {
-            hostname : 'novel.juhe.im',
+            hostname : 'api.zhuishushenqi.com',
             port: 80,
-            path : '/book-chapters/' + id,
+            path : '/atoc/' + id + '?view=chapters',
             method:'GET'
         };
         req_obj = http.request(http_request,function (_res) {
@@ -102,9 +102,9 @@ exports.get_book_data_online = function (id) {
         };
         var content = qs.stringify(data);
         var http_request = {
-            hostname : 'novel.juhe.im',
+            hostname : 'api.zhuishushenqi.com',
             port: 80,
-            path : '/book-info/'+id,
+            path : '/book/'+id,
             method:'GET'
         };
         req_obj = http.request(http_request,function (_res) {
@@ -150,10 +150,34 @@ exports.get_xjb_online = function (id,start,count,click) {
         req_obj.end();
     }
 }
-exports.get_chapterContent_online =async function (ctx) {
-    var urls = 'http://chapter2.zhuishushenqi.com/chapter/http://vip.zhuishushenqi.com/chapter/http://vip.zhuishushenqi.com/chapter/56f8da0a176d03ac1983f6f6?cv=15271418534681';
-    const bookInfo = await axios.get(urls);
-    ctx.body = bookInfo.data;
+exports.get_chapterContent_online =function (id,cv) {
+    return function (cb) {
+        var http = require('http');
+        var qs   = require('querystring');
+        var data = {
+            cv : cv
+        };
+        var content = qs.stringify(data);
+        var mainUrl = 'http://vip.zhuishushenqi.com/chapter/'+id+'?'+content;
+        var urls = encodeURIComponent(mainUrl);
+        var http_request = {
+            hostname : 'chapter2.zhuishushenqi.com',
+            port: 80,
+            path : '/chapter/' + urls,
+            method:'GET'
+        };
+        var req_obj = http.request(http_request,function (_res) {
+            var body = '';
+            _res.setEncoding('utf-8');
+            _res.on('data',function (chunk) {
+                body += chunk;
+            });
+            _res.on('end',function () {
+                cb(null,body);
+            });
+        });
+        req_obj.end();
+    }
 }
     // return function (cb) {
     //     var http = require('http');

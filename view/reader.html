@@ -586,8 +586,10 @@
 
             var Chapter_id = cid_;
 
-            if (Util.StorageGetter(Fiction_id + 'last_chapter')) {
+            if (Util.StorageGetter(Fiction_id + 'last_chapter') && Util.StorageGetter(Fiction_id + 'last_chapter')<5) {
                 Chapter_id = Util.StorageGetter(Fiction_id + 'last_chapter');
+            }else{
+                Chapter_id = '5';
             }
 
             if (!Chapter_id) {
@@ -669,7 +671,6 @@
                 var cid = Chapter_id + 1;
                 gotoChapter(cid);
                 Util.StorageSetter(Fiction_id + 'last_chapter', Chapter_id);
-                debugger;
             };
 
             return {

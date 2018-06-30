@@ -28,7 +28,7 @@ app.use(controller.get('/',function *() {
     this.set('Cache-Control','no-cache');
     this.body = yield render('index',{title : '书城首页'});
 }));
-app.use(controller.get('/catelog',function *() {
+app.use(controller.get('/catelog/:id',function *() {
     this.set('Cache-Control','no-cache');
     this.body = yield render('catelog',{title : '目录'});
 }));
@@ -56,7 +56,7 @@ app.use(controller.get('/rank',function *() {
     this.set('Cache-Control','no-cache');
     this.body = yield render('rank',{title : '排行'});
 }));
-app.use(controller.get('/reader',function *() {
+app.use(controller.get('/reader/:id',function *() {
     this.set('Cache-Control','no-cache');
     this.body = yield render('reader',{title : '本体'});
 }));
@@ -64,7 +64,7 @@ app.use(controller.get('/book/:bookId',function *() {
     this.set('Cache-Control','no-cache');
     var params = querystring.parse(this.req._parsedUrl.query);
     var bookId = params.id;
-    this.body = yield render('book',{nav:'书籍详情',bookId:bookId});
+    this.body = yield render('book',{title:'书籍详情',bookId:bookId});
 }));
 //获取模拟数据得方法
 app.use(controller.get('/api_test',function *() {
@@ -138,12 +138,14 @@ app.use(controller.get('/ajax/chapter/data',function *() {
     }
     this.body = service.get_chapter_content_data(id);
 }));
-// app.use(controller.get('/ajax/chapterContent',async function (ctx) {
-//     var urls = 'http://chapter2.zhuishushenqi.com/chapter/http://vip.zhuishushenqi.com/chapter/http://vip.zhuishushenqi.com/chapter/56f8da0a176d03ac1983f6f6?cv=15271418534681';
-//     const bookInfo = await axios.get(urls);
-//     console.log(bookInfo.data);
-//     this.body = bookInfo.data;
-// }));
+app.use(controller.get('/ajax/chapterContent',function *() {
+    this.set('Cache-Control','no-cache');
+    var querystring = require('querystring');
+    var params      = querystring.parse(this.req._parsedUrl.query);
+    var id       = params.id;
+    var cv       = params.cv;
+    this.body =yield service.get_chapterContent_online(id,cv);
+}));
 
 
 app.listen(3001);
