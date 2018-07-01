@@ -1,3 +1,4 @@
+
 $.get('/ajax/index',function (d) {
     var windowWidth = $(window).width();
     if(windowWidth<320){
@@ -22,6 +23,7 @@ $.get('/ajax/index',function (d) {
     })(d);
 
     var showLiebiao = liebiao[0];
+    Vue.use(VueLazyload);
     new Vue({
         el:'#app',
         data:{

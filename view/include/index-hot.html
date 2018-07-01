@@ -11,7 +11,7 @@
             <div class="book-h5">
                 <a href="/book?{{ item.fiction_id }}">
                 <div class="book-h5__cover">
-                    <img alt="{{ item.title }}" v-bind:src="item.cover">
+                    <img alt="{{ item.title }}" src="" v-lazy="item.cover">
                 </div>
                 <div class="book-h5__info">
                     <p class="book-h5__title">{{ item.title }}</p>

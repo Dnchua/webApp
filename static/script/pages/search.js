@@ -2,6 +2,7 @@ var windowWidth = $(window).width();
 if(windowWidth<320){
     windowWidth=320;
 }
+Vue.use(VueLazyload);
 new Vue({
     el : "#app_search",
     data:{
