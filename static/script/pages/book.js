@@ -12,21 +12,20 @@ let Util = (function () {
         StorageSetter : StorageSetter
     }
 })();
-let hasThisBook = JSON.parse(Util.StorageGetter('bookIdList'));
-let flag,//flag为true时表示书架里没有这本书，可以添加
-    color;
-if (hasThisBook.indexOf(chapter_id)!=-1){
-     flag = false;
-     color = 'colorChange';
-}else{
-     flag = true;
-     color = '';
-}
-
 $.get('/ajax/book',{
     id : chapter_id
     },
     function (d) {
+        let hasThisBook = JSON.parse(Util.StorageGetter('bookIdList'));
+        let flag,//flag为true时表示书架里没有这本书，可以添加
+            color;
+        if (hasThisBook.indexOf(chapter_id)!=-1){
+            flag = false;
+            color = 'colorChange';
+        }else{
+            flag = true;
+            color = '';
+        }
         var windowWidth = $(window).width();
         if(windowWidth<320){
             windowWidth=320;
@@ -66,7 +65,7 @@ $.get('/ajax/book',{
                         flag = false;
                         this.controlColor = 'colorChange';
                     }
-                    if (!flag){
+                    else if (!flag){
                         let arr1 = JSON.parse(Util.StorageGetter(bookIdList));
                         let arr2 = JSON.parse(Util.StorageGetter(bookList));
                         let count = arr1.indexOf(chapter_id);
