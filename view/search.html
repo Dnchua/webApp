@@ -17,6 +17,14 @@
             border: 1px solid #f5f5f5;
             border-radius: 2px;
         }
+        #search-val{
+            height: 30px;
+            border: 1px solid #f5f5f5;
+        }
+        .search-input__submit{
+            height: 25px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -34,7 +42,7 @@
         </div>
         <ul class="list-h5">
             <li v-for="item in search"  v-cloak>
-                <div class="book-h5" v-show="empty" v-if="$index<25 ">
+                <div class="book-h5" v-show="empty" >
                     <a href="/book/{{ item._id }}">
                         <div class="book-h5__cover">
                             <img  alt="{{ item.title }}" src="" v-lazy="decodeURIComponent(item.cover.split('/agent/').pop())">

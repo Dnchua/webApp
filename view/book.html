@@ -70,29 +70,38 @@
             margin-right:0px;
         }
         .icon-wrap{
-            overflow: hidden;
-            margin:10px 0 10px 0;
+            margin:10px 0px 10px 0px;
+            display:-webkit-box ;
+            width : 100%;
+            justify-content: space-between;
+            align-content: center;
         }
-        .icon-read{
-            background: #FF6600;
-            margin-left: 15%;
-            width: 70%;
-            height: 30px;
+        .icon-wrap li{
+            line-height: 2.4;
+            font-size: 16px;
+            -webkit-box-flex: 1;
+            text-align: center;
+        }
+        .icon-read,.icon-updataShelf{
+            margin: 5px 20px;
+            background:#FF6600 ;
             text-align: center;
             border-radius: 5px;
             color: #efeff0;
-            font: 14px/27px a;
         }
         .book-h5__intro{
             padding:20px;
             margin:32px 0 0 10px;
-            height: 4.8em;
             font:16px/1.4em a;
             color:rgb(0,0,0,0.6);
             overflow: hidden;
         }
         [v-cloak]{
             opacity: 0;
+        }
+        .colorChange{
+            background: #858382;
+            color:#e9dfc7;
         }
     </style>
     <title>书籍详情</title>
@@ -117,13 +126,22 @@
                                 </div>
                         </div>
             </section>
-            <div class="icon-wrap">
-                <a href="/reader/{{items._id}}">
-                    <div class="icon-read">
-                        <span >开始阅读</span>
-                    </div>
-                </a>
-            </div>
+            <ul class="icon-wrap">
+                <li>
+                    <a href="javascript:" @click="storeShelf()">
+                        <div class="icon-updataShelf {{ controlColor }}">
+                            <span >追更新</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/reader/{{items._id}}">
+                        <div class="icon-read">
+                            <span >开始阅读</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
             <div class="book-h5__intro" v-cloak>
                 <span>
                     {{ items.longIntro }}

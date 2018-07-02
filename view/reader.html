@@ -705,6 +705,7 @@
             var RootContainer = $('#fiction_container');
 
             var Fiction_id, Chapter_id;
+            Fiction_id = location.href.split('/reader/').pop();
 
             // 绑定事件
             var ScrollLock = false;
@@ -974,7 +975,7 @@
                 });
 
                 $('#menu_button').click(function() {
-                    location.href = '/catelog';
+                    location.href = '/catelog/'+Fiction_id;
                 });
 
                 //屏幕中央事件

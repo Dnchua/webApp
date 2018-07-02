@@ -92,31 +92,20 @@
             <div class="shelf-search">输入作者/书名/关键字</div>
         </a>
     </div>
-    <ul class="book-list">
-        <li>
+    <ul class="book-list" >
+        <li v-for="item in shelfList">
             <div class="shelf_container">
-                <div class="shelf_cover">
-                    <img src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p01PWSycwvjd/zeDAuyxVAB21Ji.jpg" alt="">
-                </div>
-                <div class="shelf_info">
-                    <p class="shelf_title">书名</p>
-                    <p class="shelf_author">作者</p>
-                    <p class="shelf_readed">已读</p>
-                    <p class="shelf_latest">最新</p>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="shelf_container">
-                <div class="shelf_cover">
-                    <img src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p01PWSycwvjd/zeDAuyxVAB21Ji.jpg" alt="">
-                </div>
-                <div class="shelf_info">
-                    <p class="shelf_title">书名</p>
-                    <p class="shelf_author">作者</p>
-                    <p class="shelf_readed">已读</p>
-                    <p class="shelf_latest">最新</p>
-                </div>
+                <a href="/book/{{item._id}}">
+                    <div class="shelf_cover">
+                        <img v-bind:src="decodeURIComponent(item.cover.split('/agent/').pop())" alt="书籍图片">
+                    </div>
+                    <div class="shelf_info">
+                        <p class="shelf_title">{{ item.title }}</p>
+                        <p class="shelf_author">{{ item.author }}</p>
+                        <p class="shelf_readed">已读</p>
+                        <p class="shelf_latest">{{ item.lastChapter }}</p>
+                    </div>
+                </a>
             </div>
         </li>
     </ul>

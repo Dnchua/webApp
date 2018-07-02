@@ -1,4 +1,17 @@
-
+let Util = (function () {
+    let prefix = 'shelf_';
+    let StorageGetter = function(key) {
+        return localStorage.getItem(prefix + key);
+    };
+    let StorageSetter = function(key, val) {
+        return localStorage.setItem(prefix + key, val);
+    };
+    return {
+        StorageGetter : StorageGetter,
+        StorageSetter : StorageSetter
+    }
+})();
+let shelf_book = JSON.parse(Util.StorageGetter('bookList'));
 $.get('/ajax/index',function (d) {
     var windowWidth = $(window).width();
     if(windowWidth<320){
@@ -6,6 +19,7 @@ $.get('/ajax/index',function (d) {
     }
     var offset = $($('.Swipe-tab').find('a')[0]).offset();
     var index_headre_tab_width = offset.width;
+
     var liebiao = (function (d) {
         var data = d.items[3].data.data;
         var minArr=[];
@@ -46,7 +60,8 @@ $.get('/ajax/index',function (d) {
             tab_male_class : 'tab__on',
             tab_female_class : '',
             tab_flag :0,
-            book_flag:0
+            book_flag:0,
+            shelfList:shelf_book
         },
         methods:{
             tabChange : function(pos){

@@ -77,7 +77,7 @@ exports.get_catelog_data_online = function (id) {
         var http_request = {
             hostname : 'api.zhuishushenqi.com',
             port: 80,
-            path : '/atoc/' + id + '?view=chapters',
+            path : '/atoc/'+id+'?view=chapters',
             method:'GET'
         };
         req_obj = http.request(http_request,function (_res) {
@@ -179,30 +179,6 @@ exports.get_chapterContent_online =function (id,cv) {
         req_obj.end();
     }
 }
-    // return function (cb) {
-    //     var http = require('http');
-    //     var qs   = require('querystring');
-    //     var data = {
-    //         cv : cv
-    //     };
-    //     var content = qs.stringify(data);
-    //     var http_request = {
-    //         hostname : 'chapter2.zhuishushenqi.com',
-    //         port: 80,
-    //         path : '/http://vip.zhuishushenqi.com/chapter/'+id +'?'+ content,
-    //         method:'GET'
-    //     };
-    //     req_obj = http.request(http_request,function (_res) {
-    //         var body = '';
-    //         _res.setEncoding('utf-8');
-    //         _res.on('data',function (chunk) {
-    //             body += chunk;
-    //         });
-    //         _res.on('end',function () {
-    //             cb(null,body);
-    //         });
-    //     });
-    //     req_obj.end();
-    // }
+
 
 
