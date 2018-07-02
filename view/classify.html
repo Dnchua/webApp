@@ -58,6 +58,9 @@
             line-height: 16px;
             margin-left: 15px;
         }
+        [v-cloak]{
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
@@ -71,7 +74,7 @@
                     <h1>男生小说</h1>
                 </div>
                 <ul class="col-md-12">
-                    <li  v-for="item in male_book" >
+                    <li  v-for="item in male_book" v-cloak>
                         <div class="col-xs-4">
                             <a href="javascript:" v-if="$index<12">
                                 <img v-bind:src="decodeURIComponent(item.bookCover[0].split('/agent/').pop())" alt="图片">
@@ -90,7 +93,7 @@
                     <h1>女生小说</h1>
                 </div>
                 <ul class="col-md-12">
-                    <li  v-for="item in female_book" >
+                    <li  v-for="item in female_book" v-cloak>
                         <div class="col-xs-4">
                             <a href="javascript:" v-if="$index<12">
                                 <img v-bind:src="decodeURIComponent(item.bookCover[0].split('/agent/').pop())" alt="图片">
