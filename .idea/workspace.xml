@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97b55946-7183-420c-a9da-08087549c945" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change beforePath="$PROJECT_DIR$/view/include/index-top.html" afterPath="$PROJECT_DIR$/view/include/index-top.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,11 +19,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="496">
-              <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+              <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index-top.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/include/index-top.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -112,7 +121,6 @@
         <option value="$PROJECT_DIR$/view/include/header.html" />
         <option value="$PROJECT_DIR$/view/include/search-header.html" />
         <option value="$PROJECT_DIR$/view/category.html" />
-        <option value="$PROJECT_DIR$/view/include/index-top.html" />
         <option value="$PROJECT_DIR$/view/include/common-header.html" />
         <option value="$PROJECT_DIR$/static/script/pages/classify.js" />
         <option value="$PROJECT_DIR$/static/css/all.css" />
@@ -137,6 +145,7 @@
         <option value="$PROJECT_DIR$/static/script/pages/catelog.js" />
         <option value="$PROJECT_DIR$/view/search.html" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/view/include/index-top.html" />
       </list>
     </option>
   </component>
@@ -187,6 +196,12 @@
               <item name="webApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="webApp" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webApp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webApp" type="b2602c69:ProjectViewProjectNode" />
@@ -314,12 +329,12 @@
       <workItem from="1525176177763" duration="9634000" />
       <workItem from="1530459451339" duration="13295000" />
       <workItem from="1530509513505" duration="512000" />
-      <workItem from="1530510218325" duration="24000" />
+      <workItem from="1530510218325" duration="463000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219692000" />
+    <option name="totallyTimeSpent" value="220131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -382,8 +397,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/HZ$D.186.3675/HZ$D.186.3681/zhuishushenqi-master/docs/index.html" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/HZ$D.186.3675/HZ$D.186.3676/zhuishushenqi-master/server.js" />
     <entry file="file://$USER_HOME$/WebstormProjects/ajax+promise/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -608,13 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/include/index-top.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1023">
@@ -726,7 +732,25 @@
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="496">
-          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/7_meitu_1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/3.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/include/index-top.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding />
         </state>
       </provider>
