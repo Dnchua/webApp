@@ -16,14 +16,20 @@ $.get('/ajax/book',{
     id : chapter_id
     },
     function (d) {
-    if (d.adverRead == true) {
+    debugger
+    if (d.advertRead == true) {
         let hasThisBook = JSON.parse(Util.StorageGetter('bookIdList'));
         let flag,//flag为true时表示书架里没有这本书，可以添加
             color;
-        if (hasThisBook.indexOf(chapter_id) != -1) {
-            flag = false;
-            color = 'colorChange';
-        } else {
+        if (hasThisBook!==null) {
+            if (hasThisBook.indexOf(chapter_id) != -1) {
+                flag = false;
+                color = 'colorChange';
+            } else {
+                flag = true;
+                color = '';
+            }
+        }else{
             flag = true;
             color = '';
         }
