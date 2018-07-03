@@ -16,7 +16,6 @@ $.get('/ajax/book',{
     id : chapter_id
     },
     function (d) {
-    debugger
     if (d.advertRead == true) {
         let hasThisBook = JSON.parse(Util.StorageGetter('bookIdList'));
         let flag,//flag为true时表示书架里没有这本书，可以添加
