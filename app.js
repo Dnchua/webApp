@@ -60,6 +60,10 @@ app.use(controller.get('/reader/:id',function *() {
     this.set('Cache-Control','no-cache');
     this.body = yield render('reader',{title : '本体'});
 }));
+app.use(controller.get('/reader_test/:id',function *() {
+    this.set('Cache-Control','no-cache');
+    this.body = yield render('reader_test',{title : '测试本体'});
+}));
 app.use(controller.get('/book/:bookId',function *() {
     this.set('Cache-Control','no-cache');
     var params = querystring.parse(this.req._parsedUrl.query);
@@ -145,6 +149,14 @@ app.use(controller.get('/ajax/chapterContent',function *() {
     var id       = params.id;
     var cv       = params.cv;
     this.body =yield service.get_chapterContent_online(id,cv);
+}));
+app.use(controller.get('/ajax/source',function *() {
+    this.set('Cache-Control','no-cache');
+    var querystring = require('querystring');
+    var params      = querystring.parse(this.req._parsedUrl.query);
+    var view        = params.view;
+    var book          = params.book;
+    this.body =yield service.get_source_data(view, book);
 }));
 
 

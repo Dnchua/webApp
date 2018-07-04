@@ -103,6 +103,14 @@
             background: #858382;
             color:#e9dfc7;
         }
+        .book-h5__source{
+            padding:20px;
+            margin:0px 0 0 10px;
+            font:16px/1.4em a;
+            color:rgb(0,0,0,0.6);
+            border-bottom: 1px solid #858382;
+            overflow: hidden;
+        }
     </style>
     <title>书籍详情</title>
 </head>
@@ -135,7 +143,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/reader/{{items._id}}">
+                    <a href="/reader_test/{{items._id}}">
                         <div class="icon-read">
                             <span >开始阅读</span>
                         </div>
@@ -147,9 +155,21 @@
                     {{ items.longIntro }}
                 </span>
             </div>
+            <div class="changeSource">
+                <a href="javascript:" class="button-changSource book-h5__intro" @click="changeSource()">换源</a>
+                <ul>
+                    <li v-for="item in source" v-cloak>
+                        <a href="/reader_test/{{item._id}}">
+                            <div class="book-h5__source">
+                                <h2>{{item.host}}</h2>
+                                <p>{{item.lastChapter}}</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-
 </div>
 </body>
 <script src="/static/script/zepto.js"></script>

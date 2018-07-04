@@ -5,83 +5,54 @@
     <title>Title</title>
 </head>
 <body>
-<script src="/static/script/zepto.js"></script>
-<script>
-    var Util = (function() {
-        var prefix = 'ficiton_reader_';
-        var StorageGetter = function(key) {
-            return localStorage.getItem(prefix + key);
-        }
-        var StorageSetter = function(key, val) {
-            return localStorage.setItem(prefix + key, val);
-        }
-        //数据解密
-        function getBSONP(url, callback) {
-            return $.jsonp({
-                url : url,
-                cache : true,
-                callback : "duokan_fiction_chapter",
-                success : function(result) {
-                    var data = $.base64.decode(result);
-                    var json = decodeURIComponent(escape(data));
-                    callback(json);
-                }
-            });
+    <p style="word-break: break-all"> 　沉默有没有强大到可以把音乐送回它的源头。——哈特·克莱恩
 
-        };
+        　　
 
-        return {
-            getBSONP : getBSONP,
-            StorageGetter : StorageGetter,
-            StorageSetter : StorageSetter
-        }
-    })();
-    var getCurChapterContent = function() {
-        $.get("/ajax/chapter/data",{
-            id:'56f8da0a176d03ac1983f719',
-            cv:'15271418535131'
-        }, function(data) {
-            if (data.source == 'zhuishuvip') {
-                var url = data.jsonp;
-                Util.getBSONP(url, function(data) {
-                    $('#init_loading').hide();
-                    onChange_ && onChange_(data);
-                });
-            } else {
+        　　你跪下，脸贴地，屁股翘起，保持这个姿势在冰柜里冻成冰人。我拉大锯，横着锯断你撅着的屁股。平滑的切面就像树的年轮，外围是皮肤和脂肪，里面是髋骨和大肠，中间是你的粪便。我坐在你的屁股上，叼着烟，面无表情，冷若冰霜。
 
-            }
-        }, 'json');
-        return;
 
-    };
-    var id = '56f8da09176d03ac1983f6cd';
-    var Chapters = [];
-    var getFictionInfoPromise = new Promise(function(resolve, reject) {
-        $.get("/ajax/catelog", {
-            id : id
-        },function(data) {
-            console.log(data.result);
-            if (data.host =='vip.zhuishushenqi.com') {
-                var Title = data.book;
-                // $('#nav_title').html('返回书架');
-                var ChaptersData = data.chapters;
-                var chapter_data = data.chapters;
-                for (let i = 0; i < data.chapters.length; i++) {
-                    Chapters.push({
-                        "chapter_id" : data.chapters[i].order,
-                        "title" : data.chapters[i].title,
-                        'link' : data.chapters[i].link
-                    })
-                }
-                resolve(Chapters);
-            } else {
-                reject(data);
-            }
-        }, 'json');
-    });
-    getFictionInfoPromise.then(function (value) {
-        console.log(value)
-    })
-</script>
+
+        　2011年6月，北环县槐西乡发生了一起极其凶残的杀人碎尸案。
+
+        　　案发地点是一个乡村集市，当时天蒙蒙亮，雾气弥漫，路口的杂货店和小饭馆亮着灯。菜贩将摊位摆在土路的两边，有个卖葱的老汉，在地上铺塑料布的时候，发现了一个肉块。
+
+        　　老汉对面是个卖猪肉的，摊主刚把木头案子架起来，从机动山轮车上抱下半扇猪肉。
+
+        　　卖葱老汉把肉块扔到对面的肉案子上，说道：你的肉掉了。
+
+
+
+        　　摊主忙于剔骨割肉，没有理会。
+
+        　　此时天蒙蒙亮，赶早集的村民陆续前来，冷冷清清的集市热闹起来了。
+
+        　　有个村妇买了二斤五花肉，乡下妇人爱占小便宜，付钱时，她嘴里说着再搭一块肉，就将案子上的那肉块装进了塑料袋里。
+
+        　　过了一会儿，村妇返回，将塑料袋里的肉扔到肉案子上，气愤的说：退钱，肉上面有屎！
+
+        　　猪肉摊主是个五大三粗的男人，挽起袖子，操着刀与村妇争执起来，村妇捏着那块肉让围观的人看上面的屎。人群里有个老中医，凑近看了一下肉块，越看越觉得可疑，那肉块不像是猪肉，呈软化的不规则四方形，麻将大小，切割面有清晰的静脉丛，肉块一端有屎，另一端是个皱巴巴的出口，形状像是含苞欲放的菊花。
+
+        　　老中医大吃一惊，退后几步喊道：哎幺，这是人的腚眼子啊！
+
+        　　
+
+        　　腚眼子就是肛门。
+
+        　　乡村集市上有人卖人肉，这消息传出后，立刻炸开了锅，槐西乡派出所立即出警，第一时间将猪肉摊贩拘捕，经过询问，卖葱老头证实了猪肉摊贩的清白，随后将其释放。民警疏散人群，对现场进行了勘验，在集市路边的草丛和水沟里又找到五十多个肉块，经验丰富的老警察一眼就可以看出，这些都是切割的人体肉块。
+
+        　　经过拼凑，这些肉块都来自于人的臀部。
+
+        　　凶犯将死者的屁股扔到了这里。
+
+        　　乡村集市就是抛洒尸块的现场，从尸块的分布地点来看，凶犯是一边走一边抛洒尸块。
+
+        　　
+
+        　　槐西乡集市比平时更加热闹非凡，那个猪肉摊贩的肉没人敢买了，他开着机动三轮车被迫到二十里外的另一个集市卖肉，并且还多了一个粗俗的外号：卖腚眼子的。老头的葱却供不应求，买葱的人络绎不绝，只是为了听他讲卖人肉的事。
+
+        　　卖葱老汉津津乐道，不断重复的对顾客讲：那天，我卖葱，铺塑料纸的时候，好家伙，摸到一块肉，我觉得是对面那卖肉的掉地上的，我就给人家扔到肉案子上了，那块肉，凉冰冰的，红彤彤的，谁能想到是人肉啊。
+
+        　　</p>
 </body>
 </html>

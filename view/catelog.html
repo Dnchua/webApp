@@ -20,26 +20,25 @@
             border-bottom: 1px solid #f0f0f0;
             font:14px/16px a;
         }
-
     </style>
 </head>
 
 <body>
-<div id="app" style="width: {{ screen_width }}px;overflow: hidden;" v-cloak>
+<div id="app" style="width: {{ screen_width }}px;overflow: hidden;" >
     <% include include/catelog-header.html%>
     <div class="container-warp">
         <div class="catelog-scroll" style="top:0px;">
             <ul class="catelog-list">
-                <li v-for="item in title" v-if="$index<1">
-                    <a href="/reader">
-                        <div class="catelog-title Swipe-tab_on">
+                <li v-for="item in title" v-if="$index<1" data-cv="{{item.link.split('?cv=').pop()}}"data-order="{{item.order}}" @click="addChapters($event)"v-cloak>
+                    <a href="/reader_test/{{backReader}}" >
+                        <div class="catelog-title Swipe-tab_on" >
                             <p>{{ item.title }}</p>
                         </div>
                     </a>
                 </li>
-                <li v-for="item in title">
-                    <a href="/reader">
-                        <div class="catelog-title">
+                <li v-for="item in title" v-if="$index>=1"data-cv="{{item.link.split('?cv=').pop()}}" data-order="{{item.order}}"@click="addChapters($event)"v-cloak>
+                    <a href="/reader_test/{{backReader}}" >
+                        <div class="catelog-title" >
                             <p>{{ item.title }}</p>
                         </div>
                     </a>

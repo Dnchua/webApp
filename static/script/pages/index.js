@@ -19,24 +19,24 @@ $.get('/ajax/index',function (d) {
     }
     var offset = $($('.Swipe-tab').find('a')[0]).offset();
     var index_headre_tab_width = offset.width;
-
-    var liebiao = (function (d) {
-        var data = d.items[3].data.data;
-        var minArr=[];
-        var bigArr=[];
-        data.forEach(function (c) {
-            if(minArr.length === 5){
-                minArr=[];
-            }
-            if(minArr.length === 0){
-                bigArr.push(minArr);
-            }
-            minArr.push(c);
-        })
-        return bigArr;
-    })(d);
-
-    var showLiebiao = liebiao[0];
+    //
+    // var liebiao = (function (d) {
+    //     var data = d.items[3].data.data;
+    //     var minArr=[];
+    //     var bigArr=[];
+    //     data.forEach(function (c) {
+    //         if(minArr.length === 5){
+    //             minArr=[];
+    //         }
+    //         if(minArr.length === 0){
+    //             bigArr.push(minArr);
+    //         }
+    //         minArr.push(c);
+    //     })
+    //     return bigArr;
+    // })(d);
+    //
+    // var showLiebiao = liebiao[0];
     Vue.use(VueLazyload);
     new Vue({
         el:'#app',
@@ -44,13 +44,14 @@ $.get('/ajax/index',function (d) {
             screen_width:windowWidth,
             double_window_width:windowWidth*2,
             index_headre_tab_width:index_headre_tab_width,
-            top:d.items[0].data.data,
-            hot:d.items[1].data.data,
-            recommend:d.items[2].data.data,
-            female:liebiao[0],
-            male:d.items[4].data.data,
-            free:d.items[5].data.data,
-            topic:d.items[6].data.data,
+            mainHost:'http://statics.zhuishushenqi.com',
+            // top:d.items[0].data.data,
+            hot:d.comeout,
+            recommend:d.recommand,
+            female:d.female,
+            male:d.male,
+            free:d.free,
+            // topic:d.items[6].data.data,
             duration:0,
             position:0,
             header_position:0,

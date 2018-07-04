@@ -44,7 +44,9 @@ $.get('/ajax/book',{
                 items: data_book,
                 show: true,
                 flag_shelf: flag,
-                controlColor: color
+                controlColor: color,
+                source : [],
+                source_show:false
             },
             methods: {
                 storeShelf: function () {
@@ -83,6 +85,20 @@ $.get('/ajax/book',{
                         this.flag_shelf = true;
                         this.controlColor = '';
                     }
+                },
+                changeSource : function () {
+                    let _this = this;
+                    $.get('/ajax/source',{
+                        view : 'summary',
+                        book : chapter_id
+                    },function(d){
+                        _this.source = d;
+                        if(_this.source.length == 0){
+                            _this.source_show = false;
+                        }else{
+                            _this.source_show = true;
+                        }
+                    },'json')
                 }
             },
             mouted: {}

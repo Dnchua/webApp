@@ -23,7 +23,7 @@ exports.get_book_data = function (id) {
     return content;
 }
 exports.get_index_data = function () {
-    var content = fs.readFileSync('./mock/home.json','utf-8');
+    var content = fs.readFileSync('./mock/newHome.json','utf-8');
     return content;
 }
 exports.get_catelog_data = function () {
@@ -164,6 +164,34 @@ exports.get_chapterContent_online =function (id,cv) {
             hostname : 'chapter2.zhuishushenqi.com',
             port: 80,
             path : '/chapter/' + urls,
+            method:'GET'
+        };
+        var req_obj = http.request(http_request,function (_res) {
+            var body = '';
+            _res.setEncoding('utf-8');
+            _res.on('data',function (chunk) {
+                body += chunk;
+            });
+            _res.on('end',function () {
+                cb(null,body);
+            });
+        });
+        req_obj.end();
+    }
+}
+exports.get_source_data =function (view,id) {
+    return function (cb) {
+        var http = require('http');
+        var qs   = require('querystring');
+        var data = {
+            view : view,
+            book : id
+        };
+        var content = qs.stringify(data);
+        var http_request = {
+            hostname : 'api.zhuishushenqi.com',
+            port: 80,
+            path : '/atoc?' + content,
             method:'GET'
         };
         var req_obj = http.request(http_request,function (_res) {

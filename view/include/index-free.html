@@ -1,19 +1,19 @@
-<section>
+<section >
     <div class="channel-group">
         <div class="channel-group__header">
             <h2 class="channel-group__title">限时免费</h2>
         </div>
         <ul class="book-table">
-            <li v-for="item in free" v-if="$index<3">
-                <a href="/book?id={{ item.data.fiction_id }}">
+            <li v-for="item in free" v-if="$index<3"v-cloak>
+                <a href="/book/{{item._id}}">
                     <div class="u-book">
 
                         <div class="book-cover">
-                            <img alt="{{ item.ad_name }}" src="" v-lazy="item.data.cover">
+                            <img alt="{{ item.title }}" src="" v-lazy="decodeURIComponent(item.cover.split('/agent/').pop())">
                             <div class="u-tagRT -freefiction"></div>
                         </div>
                         <div class="book-info">
-                            <h3 class="title">{{ item.ad_name }}</h3>
+                            <h3 class="title">{{ item.title }}</h3>
                         </div>
 
                     </div>

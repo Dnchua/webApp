@@ -343,7 +343,7 @@
 .title{
     font-size: 13px;
     line-height: 1.4em;
-    max-height: 2.8em;
+    /*max-height: 2.8em;*/
     overflow: hidden;
     color:#333333;
     margin-bottom: 0px;

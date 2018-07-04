@@ -30,8 +30,8 @@
 <div id="app_search" style="width: {{ screen_width }}px;overflow: hidden;" >
     <% include include/common-header.html%>
     <div class="search-box" v-cloak>
-        <input type="text" id="search-val" style='width:{{ screen_width-150 }}px;' placeholder="请输入作者/书名/关键字">
-        <button class="search-input__submit" v-on:click = 'doSearch'>搜索</button>
+        <input type="text" id="search-val" style='width:{{ screen_width-150 }}px;' @keyup.enter="doSearch" placeholder="请输入作者/书名/关键字">
+        <button class="search-input__submit" @click = 'doSearch'>搜索</button>
     </div>
     <section class="channel-h5">
         <div class="channel-h5__header">

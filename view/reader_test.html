@@ -450,6 +450,9 @@
             height: 266px;
             z-index: 39999
         }
+        #fiction_container>pre{
+            font-size : inherit;
+        }
     </style>
 </head>
 <body>
@@ -462,7 +465,6 @@
         <div class="artical-action-mid" id="action_mid"></div>
     </div>
     <div id="fiction_container" class="m-read-content"></div>
-    <pre></pre>
     <div class="top-nav" id="top-nav" style="display:none">
         <div class="top-nav-warp">
             <div class="icon-back"></div>
@@ -580,33 +582,6 @@
         })();
 
         //获得阅读器内容的方法
-        function ReaderShow(id_,cid_,onChange_) {
-            var Title = "";
-            var Fiction_id = id_;
-            var Chapter_id = _cid;
-            if (Util.StorageGetter(Fiction_id+'last_chapter')){
-                Chapter_id = Util.StorageGetter(Fiction_id+'last_chapter');
-            }
-            if (!Chapter_id){
-                Chapter_id = '1524016426494';
-            }
-            var Chapters = [];
-            var init = function () {
-                getFictionInfoPromise
-            };
-            var gotoChapter = function (chapter_id) {
-                Chapter_id = chapter_id;
-                getCurChapterContent();
-            };
-            var getCurChapterContent = function () {
-                $.get('/ajax/book',{
-                    id : Fiction_id,
-                    cv : Chapter_id
-                },function (data) {
-
-                },'json')
-            }
-        }
         function ReaderModel(id_, cid_, onChange_) {
             var Title = "";
 
@@ -614,14 +589,13 @@
 
             var Chapter_id = cid_;
 
-            if (Util.StorageGetter(Fiction_id + 'last_chapter') && Util.StorageGetter(Fiction_id + 'last_chapter')<5) {
+            if (Util.StorageGetter(Fiction_id + 'last_chapter')) {
                 Chapter_id = Util.StorageGetter(Fiction_id + 'last_chapter');
-            }else{
-                Chapter_id = '5';
+                // Chapter_id = '1486473051386';
             }
-
             if (!Chapter_id) {
-                Chapter_id = 1;
+                Chapter_id = 0;
+                Util.StorageSetter(Fiction_id + 'last_chapter',Chapter_id);
             }
             var Chapters = [];
 
@@ -629,47 +603,40 @@
                 getFictionInfoPromise.then(function(d) {
                     gotoChapter(Chapter_id);
                 });
-                /*
-                 getFictionInfo(function() {
-                 gotoChapter(Chapter_id);
-                 });
-                 */
             }
             var gotoChapter = function(chapter_id) {
-                Chapter_id = chapter_id;
-                getCurChapterContent();
+                let cv= window.chapter_data[chapter_id].link.split('?cv=').pop();
+                let bookId = window.chapter_data[chapter_id].id;
+                getCurChapterContent(bookId,cv);
             };
 
             //获得当前章节内容
-            var getCurChapterContent = function() {
-                $.get("/ajax/chapter/data",{
-                    id:Chapter_id
+            var getCurChapterContent = function(id,cv) {
+                $.get("/ajax/ChapterContent",{
+                    id:id,
+                    cv:cv
                 }, function(data) {
-                    if (data.result == 0) {
-                        var url = data.jsonp;
-                        Util.getBSONP(url, function(data) {
-                            $('#init_loading').hide();
-                            onChange_ && onChange_(data);
-                        });
-                    } else {
-
-                    }
+                    $('#init_loading').hide();
+                    onChange_ && onChange_(data);
                 }, 'json');
                 return;
 
             };
 
             var getFictionInfoPromise = new Promise(function(resolve, reject) {
-                $.get("/ajax/chapter", function(data) {
-                    if (data.result == 0) {
-                        Title = data.title;
+                $.get("/ajax/catelog",{
+                    id : Fiction_id
+                }, function(data) {
+                    if (data._id == Fiction_id) {
+                        Title = data.name;
                         $('#nav_title').html('返回书架');
                         window.ChaptersData = data.chapters;
                         window.chapter_data = data.chapters;
                         for (var i = 0; i < data.chapters.length; i++) {
                             Chapters.push({
-                                "chapter_id" : data.chapters[i].chapter_id,
-                                "title" : data.chapters[i].title
+                                "chapter_id" : data.chapters[i].order,
+                                "title" : data.chapters[i].title,
+                                'link' : data.chapters[i].link.split('?cv=').pop()
                             })
                         }
                         resolve(Chapters);
@@ -680,24 +647,24 @@
             });
             //获得上一章内容
             var prevChapter = function() {
-                Chapter_id = parseInt(Chapter_id);
+                Chapter_id = parseInt(Util.StorageGetter(Fiction_id + 'last_chapter'));
                 if (Chapter_id == 0) {
                     return
                 }
                 var cid = Chapter_id - 1;
                 gotoChapter(cid);
-                Util.StorageSetter(Fiction_id + 'last_chapter', Chapter_id);
+                Util.StorageSetter(Fiction_id + 'last_chapter', cid);
             };
 
             //获得下一章内容
             var nextChapter = function() {
-                Chapter_id = parseInt(Chapter_id);
+                Chapter_id = parseInt(Util.StorageGetter(Fiction_id + 'last_chapter'));
                 if (Chapter_id == Chapters.length - 1) {
                     return
                 }
                 var cid = Chapter_id + 1;
                 gotoChapter(cid);
-                Util.StorageSetter(Fiction_id + 'last_chapter', Chapter_id);
+                Util.StorageSetter(Fiction_id + 'last_chapter', cid);
             };
 
             return {
@@ -714,11 +681,9 @@
         //画一下基本的展示框架
         function RenderBaseFrame(container) {
             function parseChapterData(jsonData) {
-                var jsonObj = JSON.parse(jsonData);
-                var html = "<h4>" + jsonObj.t + "</h4>";
-                for (var i = 0; i < jsonObj.p.length; i++) {
-                    html += "<p>" + jsonObj.p[i] + "</p>";
-                }
+                var jsonObj = jsonData.chapter;
+                var html = "<h4>" + jsonObj.title + "</h4>";
+                html += "<pre>" + jsonObj.cpContent +"<pre>";
                 return html;
             }
 
@@ -730,10 +695,9 @@
         function main() {
             // 获取fiction_id 和 chapter_id
             var RootContainer = $('#fiction_container');
-
             var Fiction_id, Chapter_id;
-            Fiction_id = location.href.split('/reader/').pop();
-
+            Fiction_id = location.href.split('/reader_test/').pop();
+            // Fiction_id = '56f8da09176d03ac1983f6cd';
             // 绑定事件
             var ScrollLock = false;
             var Doc = document;
@@ -763,7 +727,7 @@
             var readerUIFrame = RenderBaseFrame(RootContainer);
 
             //获得章节数据，展示
-            var readerModel = ReaderModel(Fiction_id || 13359, Chapter_id, function(data) {
+            var readerModel = ReaderModel(Fiction_id || '58c7b8601408ff3d1c015cb4', Chapter_id, function(data) {
                 readerUIFrame(data);
                 Dom.bottom_tool_bar.show();
                 setTimeout(function() {
@@ -814,7 +778,7 @@
                 var font = Util.StorageGetter('font_color');
                 var bkCurColor = Util.StorageGetter('background_color');
                 var fontColor = Util.StorageGetter('font_color');
-
+                var Font_size = $('#fiction_container>pre');
                 for (var i = 0; i < colorArr.length; i++) {
                     var display = 'none';
                     if (bkCurColor == colorArr[i].value) {
@@ -930,7 +894,7 @@
 
                 //字体放大
                 $('#large-font').click(function() {
-                    if (InitFontSize > 20) {
+                    if (InitFontSize > 24) {
                         return;
                     }
                     InitFontSize += 1;
@@ -940,7 +904,8 @@
 
                 //字体缩小
                 $('#small-font').click(function() {
-                    if (InitFontSize < 12) {
+                    // let Font_size = $('#fiction_container>pre');
+                    if (InitFontSize < 15) {
                         return;
                     }
                     InitFontSize -= 1;
@@ -1020,7 +985,6 @@
                 });
             })();
         }
-
         return main();
     })();
 </script>

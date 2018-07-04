@@ -8,19 +8,20 @@
     <div>
         <div>
             <ul class="list-h5">
-                <li v-for="item in female" v-if="$index<5">
+                <li v-for="item in female" v-if="$index<5" v-cloak>
                     <div class="book-h5">
-                        <a href="/book?{{ item.fiction_id }}">
+                        <a href="/book/{{item._id}}">
                         <div class="book-h5__cover">
-                            <img alt="{{ item.title }}" src="" v-lazy="item.cover">
+                            <img alt="{{ item.title }}" src="" v-lazy="decodeURIComponent(item.cover.split('/agent/').pop())">
                             <p class="book-h5__finish">完结</p>
                         </div>
                         <div class="book-h5__info">
                             <p class="book-h5__title">{{ item.title }}</p>
-                            <p class="book-h5__author">{{ item.authors }}</p>
-                            <p class="book-h5__intro">{{ item.summary }}</p>
+                            <p class="book-h5__author">{{ item.author }}</p>
+                            <p class="book-h5__intro">{{ item.shortIntro }}</p>
                             <div class="book-h5__warp">
-                                <p class="book-h5__tag" v-for="tags in item.tags" v-if="$index<3">{{ tags }}</p>
+                                <p class="book-h5__tag">{{ item.majorCate }}</p>
+                                <p class="book-h5__tag">{{ item.minorCate }}</p>
                             </div>
                         </div>
                         </a>
