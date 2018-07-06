@@ -5,6 +5,7 @@ var views       = require('co-views');
 var render      = views('./view',{
     map : {html : 'ejs'}
 });
+var gzip = require('koa-gzip');
 var koa_static  = require('koa-static-server');
 var service     = require('./service/webAppService.js');
 var querystring = require('querystring');
@@ -15,10 +16,10 @@ app.use(koa_static({
     rootDir : './static/',
     rootPath: '/static/',
     maxage :60*60*24*7
-}))
+}));
 
 
-
+app.use(gzip());
 app.use(controller.get('/ejs_test',function *() {
     this.set('Cache-Control','no-cache');
     this.body = yield render('test',{title : 'title_test'});
