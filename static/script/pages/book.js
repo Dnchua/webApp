@@ -42,6 +42,7 @@ $.get('/ajax/book',{
             data: {
                 screen_width: windowWidth,
                 items: data_book,
+                vip:window.mainTarget,
                 show: true,
                 flag_shelf: flag,
                 controlColor: color,
@@ -86,7 +87,7 @@ $.get('/ajax/book',{
                         this.controlColor = '';
                     }
                 },
-                changeSource : function () {
+                changeSource1 : function () {
                     let _this = this;
                     $.get('/ajax/source',{
                         view : 'summary',
@@ -99,9 +100,20 @@ $.get('/ajax/book',{
                             _this.source_show = true;
                         }
                     },'json')
+                },
+                changeSource : function () {
+                    let _this = this;
+                    $.get('/ajax/source',{
+                        view : 'summary',
+                        book : chapter_id
+                    },function(d){
+                        window.location.href = '/reader_test/' + d[0]._id;
+                    },'json')
                 }
             },
-            mouted: {}
+            mouted: {
+
+            }
         })
     }
 },'json');
