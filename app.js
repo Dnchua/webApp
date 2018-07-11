@@ -15,7 +15,7 @@ var axios = require('axios');
 app.use(koa_static({
     rootDir : './static/',
     rootPath: '/static/',
-    maxage :60*60*24*7
+    maxage :604800
 }));
 
 

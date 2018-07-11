@@ -7,11 +7,11 @@
     <list default="true" id="97b55946-7183-420c-a9da-08087549c945" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change beforePath="$PROJECT_DIR$/mock/home.json" afterPath="$PROJECT_DIR$/mock/home.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.npminstall.done" afterPath="$PROJECT_DIR$/node_modules/.npminstall.done" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/view/include/catelog-header.html" afterPath="$PROJECT_DIR$/view/include/catelog-header.html" />
+      <change beforePath="$PROJECT_DIR$/static/css/all.css" afterPath="$PROJECT_DIR$/static/css/all.css" />
+      <change beforePath="$PROJECT_DIR$/static/script/pages/index.js" afterPath="$PROJECT_DIR$/static/script/pages/index.js" />
       <change beforePath="$PROJECT_DIR$/view/index.html" afterPath="$PROJECT_DIR$/view/index.html" />
+      <change beforePath="$PROJECT_DIR$/view/reader.html" afterPath="$PROJECT_DIR$/view/reader.html" />
+      <change beforePath="$PROJECT_DIR$/view/reader_test.html" afterPath="$PROJECT_DIR$/view/reader_test.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,28 +25,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="reader.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/reader.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/WebstormProjects/html5阅读器/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14291">
-              <caret line="461" column="62" lean-forward="false" selection-start-line="461" selection-start-column="62" selection-end-line="461" selection-end-column="62" />
+            <state relative-caret-position="-620">
+              <caret line="227" column="8" lean-forward="false" selection-start-line="227" selection-start-column="8" selection-end-line="270" selection-end-column="9" />
               <folding>
-                <marker date="1530694025657" expanded="true" signature="43674:43691" ph="..." />
-                <marker date="1530694025657" expanded="true" signature="43759:43767" ph="..." />
-                <marker date="1530694025657" expanded="true" signature="43803:43815" ph="..." />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$USER_HOME$/WebstormProjects/html5阅读器/index.html">
+      <file leaf-file-name="reader.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/reader.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="552" column="33" lean-forward="false" selection-start-line="552" selection-start-column="33" selection-end-line="552" selection-end-column="33" />
+            <state relative-caret-position="4448">
+              <caret line="869" column="36" lean-forward="false" selection-start-line="869" selection-start-column="31" selection-end-line="869" selection-end-column="36" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1531318827238" expanded="true" signature="44829:44846" ph="..." />
+                <marker date="1531318827238" expanded="true" signature="44914:44922" ph="..." />
+                <marker date="1531318827238" expanded="true" signature="44958:44970" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reader_test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/reader_test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="455">
+              <caret line="488" column="32" lean-forward="true" selection-start-line="488" selection-start-column="32" selection-end-line="488" selection-end-column="32" />
+              <folding>
+                <marker date="1531323343762" expanded="true" signature="45075:45092" ph="..." />
+                <marker date="1531323343762" expanded="true" signature="45160:45168" ph="..." />
+                <marker date="1531323343762" expanded="true" signature="45204:45216" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="book.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/script/pages/book.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="511">
+              <caret line="78" column="61" lean-forward="true" selection-start-line="78" selection-start-column="61" selection-end-line="78" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="all.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/all.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="378" column="0" lean-forward="true" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,10 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Swipe</find>
-      <find>S</find>
-      <find>sw</find>
-      <find>top-home</find>
       <find>v-</find>
       <find>f-cb</find>
       <find>getFic</find>
@@ -76,7 +116,6 @@
       <find>src</find>
       <find>v-on</find>
       <find>RenderBaseFrame</find>
-      <find>Fiction_id</find>
       <find>catelog-</find>
       <find>catelog_data</find>
       <find>debugg</find>
@@ -93,6 +132,11 @@
       <find>debugger</find>
       <find>artical</find>
       <find>icon_font</find>
+      <find>ajax</find>
+      <find>swipe</find>
+      <find>icon-menu</find>
+      <find>Fiction_id</find>
+      <find>parse</find>
     </findStrings>
     <replaceStrings>
       <replace>male</replace>
@@ -139,24 +183,24 @@
         <option value="$PROJECT_DIR$/mock/都市.json" />
         <option value="$PROJECT_DIR$/mock/newHome.json" />
         <option value="$PROJECT_DIR$/service/webAppService.js" />
-        <option value="$PROJECT_DIR$/static/script/pages/index.js" />
         <option value="$PROJECT_DIR$/view/include/index-recommend.html" />
         <option value="$PROJECT_DIR$/view/include/index-female.html" />
         <option value="$PROJECT_DIR$/view/include/index-hot.html" />
-        <option value="$PROJECT_DIR$/static/css/all.css" />
         <option value="$PROJECT_DIR$/view/include/index-male.html" />
         <option value="$PROJECT_DIR$/view/include/index-free.html" />
         <option value="$PROJECT_DIR$/view/book.html" />
         <option value="$PROJECT_DIR$/view/catelog.html" />
         <option value="$PROJECT_DIR$/view/test.html" />
-        <option value="$PROJECT_DIR$/view/reader_test.html" />
         <option value="$PROJECT_DIR$/mock/home.json" />
         <option value="$PROJECT_DIR$/test.js" />
-        <option value="$PROJECT_DIR$/view/index.html" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/view/include/catelog-header.html" />
-        <option value="$PROJECT_DIR$/view/reader.html" />
         <option value="$USER_HOME$/WebstormProjects/html5阅读器/index.html" />
+        <option value="$PROJECT_DIR$/view/index.html" />
+        <option value="$PROJECT_DIR$/static/script/pages/index.js" />
+        <option value="$PROJECT_DIR$/view/reader.html" />
+        <option value="$PROJECT_DIR$/static/css/all.css" />
+        <option value="$PROJECT_DIR$/view/reader_test.html" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -190,7 +234,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,16 +242,51 @@
               <item name="webApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="webApp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="webApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webApp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webApp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webApp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webApp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webApp" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webApp" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/WebstormProjects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
@@ -310,26 +389,30 @@
       <workItem from="1530690490989" duration="3575000" />
       <workItem from="1530696443500" duration="1925000" />
       <workItem from="1530717659808" duration="7000" />
+      <workItem from="1531143203958" duration="1111000" />
+      <workItem from="1531148639577" duration="1459000" />
+      <workItem from="1531196447564" duration="374000" />
+      <workItem from="1531318396410" duration="5142000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261978000" />
+    <option name="totallyTimeSpent" value="270064000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17019027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16226216" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24173318" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -382,13 +465,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/工程/zhuishushenqi-master/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="6" column="54" lean-forward="false" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/工程/zhuishushenqi-master/src/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
@@ -445,13 +521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/script/vue-lazyout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6528">
-          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/include/index-shelf.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -484,13 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="2814" column="64" lean-forward="false" selection-start-line="2814" selection-start-column="64" selection-end-line="2814" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/include/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -586,13 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/all.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="345" column="26" lean-forward="true" selection-start-line="345" selection-start-column="26" selection-end-line="345" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/include/index-free.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -642,36 +697,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/script/pages/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="89" column="58" lean-forward="false" selection-start-line="89" selection-start-column="58" selection-end-line="89" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/reader_test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="988" column="9" lean-forward="true" selection-start-line="552" selection-start-column="3" selection-end-line="988" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.js" />
-    <entry file="file://$PROJECT_DIR$/view/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="868">
-          <caret line="28" column="14" lean-forward="false" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/script/pages/book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="47" column="28" lean-forward="false" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/catelog.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
@@ -686,32 +712,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/static/script/vue-lazyout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        <state relative-caret-position="-4997">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/reader.html">
+    <entry file="file://$PROJECT_DIR$/static/script/zepto.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14291">
-          <caret line="461" column="62" lean-forward="false" selection-start-line="461" selection-start-column="62" selection-end-line="461" selection-end-column="62" />
-          <folding>
-            <marker date="1530694025657" expanded="true" signature="43674:43691" ph="..." />
-            <marker date="1530694025657" expanded="true" signature="43759:43767" ph="..." />
-            <marker date="1530694025657" expanded="true" signature="43803:43815" ph="..." />
-          </folding>
+        <state relative-caret-position="31">
+          <caret line="1558" column="69" lean-forward="true" selection-start-line="1558" selection-start-column="69" selection-end-line="1558" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/include/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="13" column="91" lean-forward="false" selection-start-line="13" selection-start-column="91" selection-end-line="13" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/script/pages/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2112">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/WebstormProjects/html5阅读器/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="552" column="33" lean-forward="false" selection-start-line="552" selection-start-column="33" selection-end-line="552" selection-end-column="33" />
+        <state relative-caret-position="-620">
+          <caret line="227" column="8" lean-forward="false" selection-start-line="227" selection-start-column="8" selection-end-line="270" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/all.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="378" column="0" lean-forward="true" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/script/pages/book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="78" column="61" lean-forward="true" selection-start-line="78" selection-start-column="61" selection-end-line="78" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/reader.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4448">
+          <caret line="869" column="36" lean-forward="false" selection-start-line="869" selection-start-column="31" selection-end-line="869" selection-end-column="36" />
+          <folding>
+            <marker date="1531318827238" expanded="true" signature="44829:44846" ph="..." />
+            <marker date="1531318827238" expanded="true" signature="44914:44922" ph="..." />
+            <marker date="1531318827238" expanded="true" signature="44958:44970" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/reader_test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="488" column="32" lean-forward="true" selection-start-line="488" selection-start-column="32" selection-end-line="488" selection-end-column="32" />
+          <folding>
+            <marker date="1531323343762" expanded="true" signature="45075:45092" ph="..." />
+            <marker date="1531323343762" expanded="true" signature="45160:45168" ph="..." />
+            <marker date="1531323343762" expanded="true" signature="45204:45216" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>

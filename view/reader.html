@@ -535,6 +535,26 @@
     <div class="loading" id="loading" style="display:none">
         正在加载中...
     </div>
+    <div class="data-show" style="display: none">
+        <div class="ant-modal-mask"></div>
+        <div class="mune-show">
+            <div class="mune-show__body">
+                <ul class="ChapterList">
+                    <li data-count="1"><a href="javascript:">第1章 一切的起点</a></li>
+                    <li data-count="2"><a href="javascript:">第1章 一切的起点</a></li>
+                    <li data-count="3"><a href="javascript:">第1章 一切的起点</a></li>
+                    <li data-count="4"><a href="javascript:">第1章 一切的起点</a></li>
+                    <li data-count="5"><a href="javascript:">第1章 一切的起点</a></li>
+                    <li data-count="6"><a href="javascript:">第1章 一切的起点</a></li>
+                    <li data-count="7"><a href="javascript:">第1章 一切的起点</a></li>
+                    <li data-count="8"><a href="javascript:">第1章 一切的起点</a></li>
+                    <li data-count="1"><a href="javascript:">第1章 一切的起点</a></li>
+                    <li data-count="1"><a href="javascript:">第1章 一切的起点</a></li>
+                    <li data-count="1"><a href="javascript:">第1章 一切的起点</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="m-tool-bar-mask" id="tool_bar_mask" style="display:none"></div>
     <ul class="menu-container chapter-list" id="menu_container" style="display:none"></ul>
     <div class="menu-mask" id="menu_mask" style="display:none"></div>
@@ -1001,10 +1021,25 @@
                     location.href = '/';
                 });
 
-                $('#menu_button').click(function() {
-                    location.href = '/catelog/'+Fiction_id;
+                // $('#menu_button').click(function() {
+                //     location.href = '/catelog/'+Fiction_id;
+                // });
+                $('#menu_button').click(function () {
+                    if ($('.data-show').css('display')=='none'){
+                        $('.data-show').show();
+                    }else{
+                        $('.data-show').hide();
+                    }
                 });
-
+                $('.mune-show').click(function () {
+                    if ($('.data-show').css('display')!=='none'){
+                        $('.data-show').hide();
+                        console.log('mune-show');
+                    }
+                });
+                $('.mune-show__body>.ChapterList').on('click','li',function (ev) {
+                    console.log(ev.currentTarget.dataset.count);
+                });
                 //屏幕中央事件
                 $('#action_mid').click(function() {
                     if (Dom.top_nav.css('display') == 'none') {

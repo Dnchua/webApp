@@ -62,7 +62,11 @@ $.get('/ajax/index',function (d) {
             tab_female_class : '',
             tab_flag :0,
             book_flag:0,
-            shelfList:shelf_book
+            shelfList:shelf_book,
+            startX:0,//开始触摸的位置
+            moveX:0,//滑动时的位置
+            endX:0,//结束触摸的位置
+            disX:0,//移动距离
         },
         methods:{
             tabChange : function(pos){
@@ -93,7 +97,6 @@ $.get('/ajax/index',function (d) {
             tabChangeBook : function () {
                             Vue.set(this.female,0,liebiao[1][0]);
             }
-
         }
     })
 },'json');
